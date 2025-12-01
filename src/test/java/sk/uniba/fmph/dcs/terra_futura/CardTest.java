@@ -59,66 +59,60 @@ class CardTest {
         assertThrows(IllegalStateException.class, () -> card.addPollution(2));
     }
 
-//    @Test
-//    void testUpperEffectCheck() {
-//        Card card = new Card(2, new TrueEffect(), null);
-//
-//        assertTrue(card.check(List.of(), List.of(), 1));
-//    }
-//
-//    @Test
-//    void testUpperEffectCheckFailsWhenNoEffect() {
-//        Card card = new Card();
-//        assertFalse(card.check(List.of(), List.of(), 0));
-//    }
-//
-//    @Test
-//    void testUpperEffectCheckFailsWhenEffectReturnsFalse() {
-//        Card card = new Card(2, new TransformationFixed(), null);
-//        assertFalse(card.check(List.of(), List.of(), 0));
-//    }
-//
-//    @Test
-//    void testUpperEffectCheckFailsDueToPollutionLimit() {
-//        Card card = new Card(1, new TransformationFixed(), null);
-//        assertFalse(card.check(List.of(), List.of(), 2));
-//    }
-//
-//    @Test
-//    void testLowerEffectCheck() {
-//        Card card = new Card(2, null, new TransformationFixed());
-//        assertTrue(card.checkLower(List.of(), List.of(), 1));
-//    }
-//
-//    @Test
-//    void testLowerEffectCheckFailsWhenNoEffect() {
-//        Card card = new Card();
-//        assertFalse(card.checkLower(List.of(), List.of(), 0));
-//    }
-//
-//    @Test
-//    void testLowerEffectCheckFailsDueToPollutionLimit() {
-//        Card card = new Card(0, null, new TransformationFixed());
-//        assertFalse(card.checkLower(List.of(), List.of(), 1));
-//    }
-//
-//    @Test
-//    void testHasAssistanceFalse() {
-//        Card card = new Card();
-//        assertFalse(card.hasAssistance());
-//    }
-//
-//    @Test
-//    void testHasAssistanceTrueWhenUpperProvidesIt() {
-//        Card card = new Card(0, new ArbitraryBasic(), null);
-//        assertTrue(card.hasAssistance());
-//    }
-//
-//    @Test
-//    void testHasAssistanceTrueWhenLowerProvidesIt() {
-//        Card card = new Card(0, null, new ArbitraryBasic());
-//        assertTrue(card.hasAssistance());
-//    }
+    @Test
+    void testUpperEffectCheck() {
+        Card card = new Card(2, new TransformationFixed(), null);
+
+        assertTrue(card.check(List.of(), List.of(), 1));
+    }
+
+    @Test
+    void testUpperEffectCheckFailsWhenNoEffect() {
+        Card card = new Card();
+        assertFalse(card.check(List.of(), List.of(), 0));
+    }
+
+    @Test
+    void testUpperEffectCheckFailsDueToPollutionLimit() {
+        Card card = new Card(1, new TransformationFixed(), null);
+        assertFalse(card.check(List.of(), List.of(), 2));
+    }
+
+    @Test
+    void testLowerEffectCheck() {
+        Card card = new Card(2, null, new TransformationFixed());
+        assertTrue(card.checkLower(List.of(), List.of(), 1));
+    }
+
+    @Test
+    void testLowerEffectCheckFailsWhenNoEffect() {
+        Card card = new Card();
+        assertFalse(card.checkLower(List.of(), List.of(), 0));
+    }
+
+    @Test
+    void testLowerEffectCheckFailsDueToPollutionLimit() {
+        Card card = new Card(0, null, new TransformationFixed());
+        assertFalse(card.checkLower(List.of(), List.of(), 1));
+    }
+
+    @Test
+    void testHasAssistanceFalse() {
+        Card card = new Card();
+        assertFalse(card.hasAssistance());
+    }
+
+    @Test
+    void testHasAssistanceTrueWhenUpperProvidesIt() {
+        Card card = new Card(0, new ArbitraryBasic(), null);
+        assertTrue(card.hasAssistance());
+    }
+
+    @Test
+    void testHasAssistanceTrueWhenLowerProvidesIt() {
+        Card card = new Card(0, null, new ArbitraryBasic());
+        assertTrue(card.hasAssistance());
+    }
 
     @Test
     void testStateJsonCorrect() {

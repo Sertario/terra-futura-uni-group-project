@@ -32,9 +32,6 @@ public class Pile {
         return deck.pop();
     }
 
-    public List<Card> getDisplayCards() {
-        return display;
-    }
 
     public void removeLastCard() {
         throw new UnsupportedOperationException("Not implemented");

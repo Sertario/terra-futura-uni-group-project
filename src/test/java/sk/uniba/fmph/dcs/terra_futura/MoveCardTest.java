@@ -53,12 +53,10 @@ public class MoveCardTest {
         Pile pile = new Pile(new ArrayList<>(display), new ArrayList<>(deck));
 
         MoveCard mc = new MoveCard(pile, grid);
+        GridPosition position = new GridPosition(0, 0);
+        grid.putCard(position, new Card());
 
-        GridPosition pos = new GridPosition(0, 0);
-
-        grid.putCard(pos, new Card());
-
-        boolean result = mc.moveFromDisplay(0, pos);
+        boolean result = mc.moveFromDisplay(0, position);
 
         assertFalse(result);
         assertEquals(4, pile.getDisplayCards().size());
@@ -102,16 +100,15 @@ public class MoveCardTest {
     }
 
     @Test
-    void testMoveFromDeckEmpty() {
+    void testMoveFromEmptyDeck() {
         Grid grid = new Grid();
 
         List<Card> display = List.of();
         List<Card> deck = List.of();
         Pile pile = new Pile(new ArrayList<>(display), new ArrayList<>(deck));
 
-        MoveCard mc = new MoveCard(pile, grid);
-
-        boolean result = mc.moveFromDeck(new GridPosition(0, 1));
+        MoveCard moveCard = new MoveCard(pile, grid);
+        boolean result = moveCard.moveFromDeck(new GridPosition(0, 1));
 
         assertFalse(result);
     }
@@ -128,12 +125,12 @@ public class MoveCardTest {
         List<Card> display = List.of(new Card(), new Card(), new Card(), new Card());
         Pile pile = new Pile(new ArrayList<>(display), new ArrayList<>());
 
-        MoveCard mc = new MoveCard(pile, grid);
-
-        boolean result = mc.moveFromDisplay(0, new GridPosition(0, 0));
+        MoveCard moveCard = new MoveCard(pile, grid);
+        boolean result = moveCard.moveFromDisplay(0, new GridPosition(0, 0));
 
         assertFalse(result);
         assertEquals(4, pile.getDisplayCards().size());
         assertTrue(grid.getCard(new GridPosition(1, 1)).isEmpty());
     }
 }
+
