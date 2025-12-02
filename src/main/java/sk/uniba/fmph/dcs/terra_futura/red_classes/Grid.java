@@ -21,7 +21,7 @@ public class Grid {
         return Optional.ofNullable(cells.get(coordinate));
     }
 
-    boolean canPutCard(GridPosition coordinate) {
+    public boolean canPutCard(GridPosition coordinate) {
         if (coordinate == null) return false;
         return !cells.containsKey(coordinate);
     }
@@ -83,3 +83,4 @@ public class Grid {
         return result.toString();
     }
 }
+
